@@ -1,3 +1,6 @@
+package fiveMens.utils;
+
+
 public class BoardField {
     private BoardField up;
     private BoardField down;

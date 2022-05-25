@@ -1,3 +1,5 @@
+package fiveMens.utils;
+
 /**
  * Pawn class represents a pawn in a game Five Men's Morris.
  */

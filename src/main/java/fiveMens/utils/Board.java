@@ -1,7 +1,9 @@
+package fiveMens.utils;
+
 import java.util.ArrayList;
 
 public class Board {
-    private BoardField fields = new ArrayList<BoardField>(); 
+    private ArrayList<BoardField> fields = new ArrayList<BoardField>();
 
     public Board() {
         for(int i = 0; i < 16; i++) { 
@@ -70,5 +72,17 @@ public class Board {
 
         outerField.setRight(innerField);
         innerField.setLeft(outerField);
+    }
+
+    public ArrayList<BoardField> getFieldsWithPawnsOfPlayer(int player) {
+        ArrayList<BoardField> playerFields = new ArrayList<BoardField>();
+
+        for(BoardField field : fields) {
+            if(field.getPawn().getPlayer() == player) {
+                playerFields.add(field);
+            }
+        }
+
+        return playerFields;
     }
 }
