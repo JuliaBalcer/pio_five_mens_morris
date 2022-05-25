@@ -70,18 +70,18 @@
          <children>
             <Group layoutX="88.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#feffcb" height="821.0" layoutX="-89.0" stroke="BLACK" strokeType="INSIDE" width="908.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8e9bd" height="821.0" layoutX="-89.0" stroke="BLACK" strokeType="INSIDE" width="908.0" />
                   <ImageView fitHeight="731.0" fitWidth="736.0" layoutX="-75.0" layoutY="-10.0" preserveRatio="true">
                      <image>
                         <Image url="@Six_Men's_Morris.svg.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="node1" layoutX="-39.0" layoutY="33.0" onMousePressed="#changeColor">
+                  <ImageView fx:id="node1" layoutX="-35.0" layoutY="34.0" onMousePressed="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node2" layoutX="261.0" layoutY="33.0" onMouseClicked="#changeColor">
+                  <ImageView id="node2" layoutX="259.0" layoutY="34.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
@@ -91,32 +91,32 @@
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node7" layoutX="114.0" layoutY="175.0" onMouseClicked="#changeColor">
+                  <ImageView id="node7" layoutX="112.0" layoutY="181.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node8" layoutX="261.0" layoutY="175.0" onMouseClicked="#changeColor">
+                  <ImageView id="node8" layoutX="258.0" layoutY="182.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node9" layoutX="403.0" layoutY="175.0" onMouseClicked="#changeColor">
+                  <ImageView id="node9" layoutX="405.0" layoutY="182.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node10" layoutX="-39.0" layoutY="326.0" onMouseClicked="#changeColor">
+                  <ImageView id="node10" layoutX="-34.0" layoutY="327.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node13" layoutX="403.0" layoutY="326.0" onMouseClicked="#changeColor">
+                  <ImageView id="node13" layoutX="404.0" layoutY="329.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node15" layoutX="552.0" layoutY="326.0" onMouseClicked="#changeColor">
+                  <ImageView id="node15" layoutX="551.0" layoutY="328.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
@@ -136,22 +136,22 @@
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node22" layoutX="-39.0" layoutY="619.0" onMouseClicked="#changeColor">
+                  <ImageView id="node22" layoutX="-35.0" layoutY="620.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node23" layoutX="261.0" layoutY="619.0" onMouseClicked="#changeColor">
+                  <ImageView id="node23" layoutX="258.0" layoutY="620.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node24" layoutX="552.0" layoutY="619.0" onMousePressed="#changeColor">
+                  <ImageView id="node24" layoutX="551.0" layoutY="620.0" onMousePressed="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node11" layoutX="114.0" layoutY="326.0" onMouseClicked="#changeColor">
+                  <ImageView id="node11" layoutX="112.0" layoutY="326.0" onMouseClicked="#changeColor">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
@@ -286,12 +286,12 @@
                   </ImageView>
                </children>
             </GridPane>
-            <ImageView id="blackTurn" layoutX="378.0" layoutY="705.0" visible="false">
+            <ImageView id="blackTurn" layoutX="378.0" layoutY="705.0">
                <image>
                   <Image url="@black_tile.png" />
                </image>
             </ImageView>
-            <ImageView id="whiteTurn" layoutX="378.0" layoutY="705.0" visible="true">
+            <ImageView id="whiteTurn" layoutX="378.0" layoutY="705.0">
                <image>
                   <Image url="@white_tile.png" />
                </image>
