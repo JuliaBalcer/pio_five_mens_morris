@@ -54,4 +54,62 @@ public class BoardField {
     public void setPawn(Pawn pawn) {
         this.pawn = pawn;
     }
+
+    public boolean pawnsInRow() {
+        if (pawn == null) {
+            return false;
+        }
+
+        int player = pawn.getPlayer();
+
+        BoardField boardField = this;
+
+        while (boardField.up != null) {
+            boardField = boardField.up;
+        }
+
+        int count = 0;
+
+        while (boardField != null) {
+            if (boardField.pawn == null) {
+                break;
+            }
+
+            if (boardField.pawn.getPlayer() == player) {
+                count++;
+            }
+
+            boardField = boardField.down;
+        }
+
+        if (count == 3) {
+            return true;
+        }
+
+        boardField = this;
+
+        while (boardField.left != null) {
+            boardField = boardField.left;
+        }
+
+        count = 0;
+
+        while (boardField != null) {
+            if (boardField.pawn == null) {
+                break;
+            }
+
+            if (boardField.pawn.getPlayer() == player) {
+                count++;
+            }
+
+            boardField = boardField.right;
+        }
+
+        if (count == 3) {
+            return true;
+        }
+
+        return false;
+    }
 }
