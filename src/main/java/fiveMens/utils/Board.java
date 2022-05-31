@@ -1,7 +1,9 @@
+package fiveMens.utils; 
+
 import java.util.ArrayList;
 
 public class Board {
-    private BoardField fields = new ArrayList<BoardField>(); 
+    private ArrayList<BoardField> fields = new ArrayList<BoardField>(); 
 
     public Board() {
         for(int i = 0; i < 16; i++) { 
