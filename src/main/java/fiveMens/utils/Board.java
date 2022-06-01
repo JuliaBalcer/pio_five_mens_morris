@@ -1,7 +1,9 @@
+package fiveMens.utils; 
+
 import java.util.ArrayList;
 
 public class Board {
-    private BoardField fields = new ArrayList<BoardField>(); 
+    private ArrayList<BoardField> fields = new ArrayList<BoardField>(); 
 
     public Board() {
         for(int i = 0; i < 16; i++) { 
@@ -11,6 +13,75 @@ public class Board {
         connectIntoSquare(0);
         connectIntoSquare(8);
         connectSquares(0, 8);
+    }
+
+    public ArrayList<BoardField> getFieldsWithPawnsOf(int player) {
+        ArrayList<BoardField> playerFields = new ArrayList<BoardField>();
+
+        for(BoardField field : fields) {
+            if(field.getPawn().getPlayer() == player) {
+                playerFields.add(field);
+            }
+        }
+
+        return playerFields;
+    }
+
+    public BoardField getField(int index) { 
+        if(index < 0 || index > 15) {
+            return null;
+        }
+
+        return fields.get(index);
+    }
+
+    public BoardField getField(Pawn pawn) { 
+        for(BoardField field : fields) {
+            if(field.getPawn() == pawn) {
+                return field;
+            }
+        }
+
+        return null;
+    }
+
+    public void putPawnOn(Pawn pawn, int index) { 
+        getField(index).setPawn(pawn);
+    }
+
+    public void removePawnFrom(int index) {
+        getField(index).setPawn(null);
+    }
+
+    public void movePawnToAdjacentField(Pawn pawn, BoardField field) { 
+        if(field.getPawn() != null) { 
+            return;
+        }
+
+        BoardField previousField = getField(pawn);
+        if(previousField == null) {
+            return;
+        }
+        if(previousField.getUp() != field && previousField.getLeft() != field 
+        && previousField.getDown() != field && previousField.getRight() != field) {
+            return;
+        }
+
+        previousField.setPawn(null);
+        field.setPawn(pawn);
+    }
+
+    public void movePawnToAnyField(Pawn pawn, BoardField field) { 
+        if(field.getPawn() != null) { 
+            return;
+        }
+
+        BoardField previousField = getField(pawn);
+        if(previousField == null) {
+            return;
+        }
+        previousField.setPawn(null);
+        field.setPawn(pawn);
     }
 
     private void connectIntoSquare(int startingIndex) { 
@@ -71,4 +142,6 @@ public class Board {
         outerField.setRight(innerField);
         innerField.setLeft(outerField);
     }
+
+    
 }
