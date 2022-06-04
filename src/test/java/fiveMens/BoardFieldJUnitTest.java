@@ -14,7 +14,7 @@ public class BoardFieldJUnitTest {
         Board board = new Board();
         for(int i = 0; i < 16; i++) { 
             BoardField field = board.getField(i);
-            assertEquals(field.pawnsInRow(), false);
+            assertEquals(false, field.pawnsInRow());
         }
     }
 
@@ -26,7 +26,7 @@ public class BoardFieldJUnitTest {
         board.putPawnOn(new Pawn(0), 2);
         for(int i = 0; i < 3; i++) { 
             BoardField field = board.getField(i);
-            assertEquals(field.pawnsInRow(), true);
+            assertEquals(true, field.pawnsInRow());
         }
 
         board = new Board();
@@ -35,7 +35,7 @@ public class BoardFieldJUnitTest {
         board.putPawnOn(new Pawn(1), 14);
         for(int i = 12; i < 15; i++) { 
             BoardField field = board.getField(i);
-            assertEquals(field.pawnsInRow(), true);
+            assertEquals(true, field.pawnsInRow());
         }
     }
 
@@ -47,7 +47,7 @@ public class BoardFieldJUnitTest {
         board.putPawnOn(new Pawn(0), 2);
         for(int i = 0; i < 3; i++) { 
             BoardField field = board.getField(i);
-            assertEquals(field.pawnsInRow(), false);
+            assertEquals(false, field.pawnsInRow());
         }
     }
 
@@ -58,9 +58,9 @@ public class BoardFieldJUnitTest {
         board.putPawnOn(new Pawn(1), 10);
         board.putPawnOn(new Pawn(1), 14);
 
-        assertEquals(board.getField(7).pawnsInRow(), false);
-        assertEquals(board.getField(10).pawnsInRow(), false);
-        assertEquals(board.getField(14).pawnsInRow(), false);
+        assertEquals(false, board.getField(7).pawnsInRow());
+        assertEquals(false, board.getField(10).pawnsInRow());
+        assertEquals(false, board.getField(14).pawnsInRow());
     
     }
 
@@ -73,7 +73,7 @@ public class BoardFieldJUnitTest {
 
         for(int i = 7; i < 10; i++) { 
             BoardField field = board.getField(i);
-            assertEquals(field.pawnsInRow(), false);
+            assertEquals(false, field.pawnsInRow());
         }
     }
 }
