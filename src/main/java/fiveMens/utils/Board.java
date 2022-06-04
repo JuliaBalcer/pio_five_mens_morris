@@ -12,7 +12,7 @@ public class Board {
 
         connectIntoSquare(0);
         connectIntoSquare(8);
-        connectSquares(0, 8);
+        connectSquares(8, 0);
     }
 
     public ArrayList<BoardField> getFieldsWithPawnsOf(int player) {
