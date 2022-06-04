@@ -3,7 +3,9 @@ package fiveMens.utils;
 import java.util.ArrayList;
 
 public class Board {
-    private ArrayList<BoardField> fields = new ArrayList<BoardField>(); 
+    private ArrayList<BoardField> fields = new ArrayList<BoardField>();
+
+    private final boolean[] playersAllowedToRemovePawn = new boolean[2];
 
     public Board() {
         for(int i = 0; i < 16; i++) { 
@@ -49,7 +51,18 @@ public class Board {
         getField(index).setPawn(pawn);
     }
 
-    public void removePawnFrom(int index) {
+    public void removePawnFrom(int index, int player) throws CanNotRemovePawnException {
+        if (!playersAllowedToRemovePawn[player]) {
+            throw new CanNotRemovePawnException("Player not allowed to remove pawn");
+        }
+        Pawn pawn = getField(index).getPawn();
+        if (pawn == null) {
+            throw new CanNotRemovePawnException("No pawn at selected position");
+        }
+        if (pawn.getPlayer() == player) {
+            throw new CanNotRemovePawnException("Can not remove your own pawn");
+        }
+        playersAllowedToRemovePawn[player] = false;
         getField(index).setPawn(null);
     }
 

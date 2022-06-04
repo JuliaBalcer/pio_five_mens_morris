@@ -1,5 +1,7 @@
 package fiveMens;
 
+import fiveMens.utils.Board;
+import fiveMens.utils.CanNotRemovePawnException;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,6 +20,10 @@ public class Controller {
 	Image whiteTile = new Image(getClass().getResourceAsStream("/fxml/white_tile.png"));
 	
 	Image blackTile = new Image(getClass().getResourceAsStream("/fxml/black_tile.png"));
+
+	Image greenTile = new Image(getClass().getResourceAsStream("/fxml/green_tile.png"));
+
+	private Board board = new Board();
 	
 	public void setPlayerTile(MouseEvent event) {
 		
@@ -37,6 +43,19 @@ public class Controller {
 		}
 		
 		changeTurnGUI(player);
+	}
+
+	private void removePawn(ImageView target) {
+		try {
+			board.removePawnFrom(getNodeId(target.getId()), player);
+		} catch (CanNotRemovePawnException e) {
+			System.err.println(e.getMessage());
+		}
+		target.setImage(greenTile);
+	}
+
+	private int getNodeId(String targetId) {
+		return Integer.parseInt(targetId.substring("node".length()));
 	}
 	
 
