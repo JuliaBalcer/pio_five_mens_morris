@@ -7,7 +7,7 @@ import org.junit.Test;
 import fiveMens.utils.Board;
 import fiveMens.utils.BoardField;
 
-public class BoardJUnitTest {
+public class BoardBuildJUnitTest {
     @Test
     public void boardNodesShouldCreateTwoSquares() {
         Board board = new Board();
