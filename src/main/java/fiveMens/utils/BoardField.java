@@ -12,7 +12,7 @@ public class BoardField {
     
     private ImageView image;
 
-    public ImageView getImage() {
+    public ImageView getNode() {
         return image;
     }
 
