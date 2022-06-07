@@ -102,7 +102,6 @@ public class Controller {
 					}
 				}
 				if (id == DEFAULTEVALUE) {
-					System.out.println("Blad");
 					return;
 				} else {
 					board.removePawnFrom(id);
@@ -146,7 +145,6 @@ public class Controller {
 			}
 
 			if (x == DEFAULTEVALUE) {
-				System.out.println("Blad");
 				return;
 			}
 
@@ -196,7 +194,6 @@ public class Controller {
 
 				}
 				if (x == DEFAULTEVALUE) {
-					System.out.println("Blad");
 					return;
 				}
 
@@ -232,7 +229,6 @@ public class Controller {
 				}
 
 				if (x == DEFAULTEVALUE) {
-					System.out.println("Blad");
 					return;
 				}
 
@@ -245,8 +241,6 @@ public class Controller {
 					setRed(prevField.getNode());
 
 				} else {
-					System.out.println(board.getField(x).getNode().getId());
-					System.out.println(prevField.getNode().getId());
 					board.movePawnToAdjacentField(prevField.getPawn(), board.getField(x));
 					if (player == WHITEPLAYER)
 						setWhite(board.getField(x).getNode());
