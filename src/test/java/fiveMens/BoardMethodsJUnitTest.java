@@ -9,7 +9,7 @@ import fiveMens.utils.Pawn;
 
 public class BoardMethodsJUnitTest {
     @Test
-    public void movePawnToAdjacentFieldShouldWork() { 
+    public void movePawnToAdjacentFieldShouldWork() {
         Board board = new Board();
         Pawn pawn = new Pawn(0);
         board.putPawnOn(pawn, 0);
@@ -18,7 +18,7 @@ public class BoardMethodsJUnitTest {
     }
 
     @Test
-    public void movePawnToAdjacentFieldShouldFailForNotAdjacentField() { 
+    public void movePawnToAdjacentFieldShouldFailForNotAdjacentField() {
         Board board = new Board();
         Pawn pawn = new Pawn(0);
         board.putPawnOn(pawn, 0);
@@ -27,7 +27,7 @@ public class BoardMethodsJUnitTest {
     }
 
     @Test
-    public void movePawnToAdjacentFieldShouldFailForTakenField() { 
+    public void movePawnToAdjacentFieldShouldFailForTakenField() {
         Board board = new Board();
         Pawn pawn = new Pawn(0);
         board.putPawnOn(pawn, 0);
@@ -37,7 +37,7 @@ public class BoardMethodsJUnitTest {
     }
 
     @Test
-    public void movePawnToAnyFieldShouldWork() { 
+    public void movePawnToAnyFieldShouldWork() {
         Board board = new Board();
         Pawn pawn = new Pawn(0);
         board.putPawnOn(pawn, 0);
@@ -46,7 +46,7 @@ public class BoardMethodsJUnitTest {
     }
 
     @Test
-    public void movePawnToAnyFieldShouldFailForTakenField() { 
+    public void movePawnToAnyFieldShouldFailForTakenField() {
         Board board = new Board();
         Pawn pawn = new Pawn(0);
         board.putPawnOn(pawn, 0);
