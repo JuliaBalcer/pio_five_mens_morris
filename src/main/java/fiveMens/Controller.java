@@ -1,7 +1,7 @@
 package fiveMens;
 
 import javafx.fxml.FXML;
-
+import javafx.scene.control.IndexRange;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -88,19 +88,9 @@ public class Controller {
 			boolean flag = false;
 
 			do {
-				int enemy = player == WHITEPLAYER ? WHITEPLAYER : BLACKPLAYER; // <- enemy
-				int id = DEFAULTEVALUE;
-				for (int i = 0; i <= MAXNUMOFNODE; i++) {
-					try {
-						if (target.getId() == board.getField(i).getNode().getId()
-								&& board.getField(i).getPawn().getPlayer() == enemy) {
-							id = i;
-							break;
-						}
-					} catch (Exception e) {
+				int enemy = player == WHITEPLAYER ? WHITEPLAYER : BLACKPLAYER;
+				int id = returnNodeIDByPlayer(enemy, target);
 
-					}
-				}
 				if (id == DEFAULTEVALUE) {
 					return;
 				} else {
@@ -181,25 +171,15 @@ public class Controller {
 		}
 		if (isEveryPawnPlaced == true) {
 			if (isSelected == false) {
-				for (int i = 0; i <= MAXNUMOFNODE; i++) {
-					try {
-						if (target.getId() == board.getField(i).getNode().getId()
-								&& board.getField(i).getPawn().getPlayer() == player) {
-							x = i;
-							break;
-						}
-					} catch (Exception e) {
 
-					}
-
-				}
+				x = returnNodeIDByPlayer(player, target);
 				if (x == DEFAULTEVALUE) {
 					return;
 				}
 
 				prevField = board.getField(x);
-				if ((counterBlack == MINNUMBEROFPAWNS && prevField.getPawn().getPlayer() == BLACKPLAYER)
-						|| (counterWhite == MINNUMBEROFPAWNS && prevField.getPawn().getPlayer() == WHITEPLAYER)) {
+				if ((deleteCounterBlack == 2 && prevField.getPawn().getPlayer() == BLACKPLAYER)
+						|| (deleteCounterWhite == 2 && prevField.getPawn().getPlayer() == WHITEPLAYER)) {
 					for (int i = 0; i <= MAXNUMOFNODE; i++) {
 						if (board.getField(i).getPawn() == null) {
 							setGreen(board.getField(i).getNode());
@@ -221,6 +201,9 @@ public class Controller {
 						break;
 					}
 				}
+				if (x == DEFAULTEVALUE) {
+					return;
+				}
 
 				if (target.getId() == prevField.getNode().getId()) {
 					isSelected = false;
@@ -228,26 +211,15 @@ public class Controller {
 					return;
 				}
 
-				if (x == DEFAULTEVALUE) {
-					return;
-				}
-
-				if (counterBlack == MINNUMBEROFPAWNS || counterWhite == MINNUMBEROFPAWNS) {
+				if (deleteCounterBlack == 2 || deleteCounterWhite == 2) {
 					board.movePawnToAnyField(prevField.getPawn(), board.getField(x));
-					if (player == WHITEPLAYER)
-						setWhite(board.getField(x).getNode());
-					if (player == BLACKPLAYER)
-						setBlack(board.getField(x).getNode());
+					setNodeColor(x);
 					setRed(prevField.getNode());
 
 				} else {
 					board.movePawnToAdjacentField(prevField.getPawn(), board.getField(x));
-					if (player == WHITEPLAYER)
-						setWhite(board.getField(x).getNode());
-					if (player == BLACKPLAYER)
-						setBlack(board.getField(x).getNode());
+					setNodeColor(x);
 					setRed(prevField.getNode());
-
 				}
 
 				makeRed();
@@ -262,6 +234,27 @@ public class Controller {
 				player = changePlayer(player);
 			}
 		}
+	}
+
+	private int returnNodeIDByPlayer(int player, ImageView target) {
+		for (int i = 0; i <= MAXNUMOFNODE; i++) {
+			try {
+				if (target.getId() == board.getField(i).getNode().getId()
+						&& board.getField(i).getPawn().getPlayer() == player) {
+					return i;
+				}
+			} catch (Exception e) {
+
+			}
+		}
+		return DEFAULTEVALUE;
+	}
+
+	private void setNodeColor(int ID) {
+		if (player == WHITEPLAYER)
+			setWhite(board.getField(ID).getNode());
+		if (player == BLACKPLAYER)
+			setBlack(board.getField(ID).getNode());
 	}
 
 	private void makeRed() {
