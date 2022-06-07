@@ -7,17 +7,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="908.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="908.0" prefWidth="821.0">
          <children>
-            <Label layoutX="300.0" layoutY="398.0" text="WYGRYWA">
+            <Label layoutX="344.0" layoutY="346.0" text="WYGRYWA">
                <font>
                   <Font name="Segoe UI" size="45.0" />
                </font>
             </Label>
-            <ImageView layoutX="380.0" layoutY="454.0">
+            <ImageView layoutX="424.0" layoutY="402.0">
                <image>
                   <Image url="@black_tile.png" />
                </image>
