@@ -15,7 +15,7 @@ public class Main extends Application {
 
 	@Override
     public void start(Stage stage) throws Exception {
-        scene = new Scene(loadFXML("/fxml/test"), 908, 804);
+        scene = new Scene(loadFXML("/fxml/game"), 908, 804);
         stage.setScene(scene);
         stage.show();
 
