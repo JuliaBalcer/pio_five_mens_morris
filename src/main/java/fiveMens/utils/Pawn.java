@@ -27,7 +27,4 @@ public class Pawn {
     public int getPlayer() {
         return player;
     }
-
-    
-
 }

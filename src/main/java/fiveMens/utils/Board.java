@@ -1,12 +1,12 @@
-package fiveMens.utils; 
+package fiveMens.utils;
 
 import java.util.ArrayList;
 
 public class Board {
-    private ArrayList<BoardField> fields = new ArrayList<BoardField>(); 
+    private ArrayList<BoardField> fields = new ArrayList<BoardField>();
 
     public Board() {
-        for(int i = 0; i < 16; i++) { 
+        for (int i = 0; i < 16; i++) {
             fields.add(new BoardField());
         }
 
@@ -18,8 +18,8 @@ public class Board {
     public ArrayList<BoardField> getFieldsWithPawnsOf(int player) {
         ArrayList<BoardField> playerFields = new ArrayList<BoardField>();
 
-        for(BoardField field : fields) {
-            if(field.getPawn().getPlayer() == player) {
+        for (BoardField field : fields) {
+            if (field.getPawn().getPlayer() == player) {
                 playerFields.add(field);
             }
         }
@@ -27,17 +27,17 @@ public class Board {
         return playerFields;
     }
 
-    public BoardField getField(int index) { 
-        if(index < 0 || index > 15) {
+    public BoardField getField(int index) {
+        if (index < 0 || index > 15) {
             return null;
         }
 
         return fields.get(index);
     }
 
-    public BoardField getField(Pawn pawn) { 
-        for(BoardField field : fields) {
-            if(field.getPawn() == pawn) {
+    public BoardField getField(Pawn pawn) {
+        for (BoardField field : fields) {
+            if (field.getPawn() == pawn) {
                 return field;
             }
         }
@@ -45,7 +45,7 @@ public class Board {
         return null;
     }
 
-    public void putPawnOn(Pawn pawn, int index) { 
+    public void putPawnOn(Pawn pawn, int index) {
         getField(index).setPawn(pawn);
     }
 
@@ -53,17 +53,17 @@ public class Board {
         getField(index).setPawn(null);
     }
 
-    public boolean movePawnToAdjacentField(Pawn pawn, BoardField field) { 
-        if(field.getPawn() != null) { 
+    public boolean movePawnToAdjacentField(Pawn pawn, BoardField field) {
+        if (field.getPawn() != null) {
             return false;
         }
 
         BoardField previousField = getField(pawn);
-        if(previousField == null) {
+        if (previousField == null) {
             return false;
         }
-        if(previousField.getUp() != field && previousField.getLeft() != field 
-        && previousField.getDown() != field && previousField.getRight() != field) {
+        if (previousField.getUp() != field && previousField.getLeft() != field
+                && previousField.getDown() != field && previousField.getRight() != field) {
             return false;
         }
 
@@ -72,13 +72,13 @@ public class Board {
         return true;
     }
 
-    public boolean movePawnToAnyField(Pawn pawn, BoardField field) { 
-        if(field.getPawn() != null) { 
+    public boolean movePawnToAnyField(Pawn pawn, BoardField field) {
+        if (field.getPawn() != null) {
             return false;
         }
 
         BoardField previousField = getField(pawn);
-        if(previousField == null) {
+        if (previousField == null) {
             return false;
         }
         previousField.setPawn(null);
@@ -86,32 +86,32 @@ public class Board {
         return true;
     }
 
-    private void connectIntoSquare(int startingIndex) { 
-        for(int i = 0; i < 2; i++) { 
-            BoardField leftField = fields.get(startingIndex+i);
-            BoardField rightField = fields.get(startingIndex+i+1);
+    private void connectIntoSquare(int startingIndex) {
+        for (int i = 0; i < 2; i++) {
+            BoardField leftField = fields.get(startingIndex + i);
+            BoardField rightField = fields.get(startingIndex + i + 1);
             leftField.setRight(rightField);
             rightField.setLeft(leftField);
         }
 
-        for(int i = 0; i < 2; i++) { 
-            BoardField upperField = fields.get(startingIndex+2+i);
-            BoardField bottomField = fields.get(startingIndex+2+i+1);
+        for (int i = 0; i < 2; i++) {
+            BoardField upperField = fields.get(startingIndex + 2 + i);
+            BoardField bottomField = fields.get(startingIndex + 2 + i + 1);
             upperField.setDown(bottomField);
             bottomField.setUp(upperField);
         }
 
-        for(int i = 0; i < 2; i++) { 
-            BoardField rightField = fields.get(startingIndex+4+i);
-            BoardField leftField = fields.get(startingIndex+4+i+1);
+        for (int i = 0; i < 2; i++) {
+            BoardField rightField = fields.get(startingIndex + 4 + i);
+            BoardField leftField = fields.get(startingIndex + 4 + i + 1);
             rightField.setLeft(leftField);
             leftField.setRight(rightField);
         }
 
-        for(int i = 0; i < 2; i++) { 
-            BoardField bottomField = fields.get(startingIndex+6+i);
-            int index = startingIndex+6+i+1;
-            if(index == startingIndex + 8)
+        for (int i = 0; i < 2; i++) {
+            BoardField bottomField = fields.get(startingIndex + 6 + i);
+            int index = startingIndex + 6 + i + 1;
+            if (index == startingIndex + 8)
                 index = startingIndex;
             BoardField upperField = fields.get(index);
             bottomField.setUp(upperField);
@@ -119,7 +119,7 @@ public class Board {
         }
     }
 
-    private void connectSquares(int innerStartingIndex, int outerStaringIndex) { 
+    private void connectSquares(int innerStartingIndex, int outerStaringIndex) {
         BoardField innerField = fields.get(innerStartingIndex + 1);
         BoardField outerField = fields.get(outerStaringIndex + 1);
 
@@ -144,6 +144,4 @@ public class Board {
         outerField.setRight(innerField);
         innerField.setLeft(outerField);
     }
-
-    
 }

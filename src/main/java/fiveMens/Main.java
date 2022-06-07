@@ -7,13 +7,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	private static Scene scene;
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
+    private static Scene scene;
 
-	@Override
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
     public void start(Stage stage) throws Exception {
         scene = new Scene(loadFXML("/fxml/game"), 908, 804);
         stage.setScene(scene);
@@ -32,9 +32,4 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-
-   
 }
-
-   

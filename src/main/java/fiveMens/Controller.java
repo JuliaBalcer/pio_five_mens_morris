@@ -1,6 +1,5 @@
 package fiveMens;
 
-
 import javafx.fxml.FXML;
 
 import javafx.scene.image.Image;
@@ -82,13 +81,12 @@ public class Controller {
 	}
 
 	public void setPlayerTile(MouseEvent event) {
-
 		ImageView target = (ImageView) event.getTarget();
 		int x = DEFAULTEVALUE;
 
 		if (canDelete == true) {
 			boolean flag = false;
-		
+
 			do {
 				int enemy = player == WHITEPLAYER ? WHITEPLAYER : BLACKPLAYER; // <- enemy
 				int id = DEFAULTEVALUE;
@@ -107,7 +105,6 @@ public class Controller {
 					System.out.println("Blad");
 					return;
 				} else {
-					
 					board.removePawnFrom(id);
 					if (isEveryPawnPlaced == false)
 						setGreen(board.getField(id).getNode());
@@ -123,14 +120,14 @@ public class Controller {
 						try {
 							Main.setRoot("/fxml/end_white");
 						} catch (Exception e) {
-				
+
 						}
 					}
-					if (deleteCounterWhite == 3){
+					if (deleteCounterWhite == 3) {
 						try {
 							Main.setRoot("/fxml/end_black");
 						} catch (Exception e) {
-				
+
 						}
 					}
 				}
@@ -141,7 +138,6 @@ public class Controller {
 		}
 
 		if (isEveryPawnPlaced == false) {
-
 			for (int i = 0; i <= MAXNUMOFNODE; i++) {
 				if (target.getId() == board.getField(i).getNode().getId()
 						&& board.getField(i).getNode().getImage().getPixelReader().getArgb(25, 25) == greenTile
@@ -160,24 +156,21 @@ public class Controller {
 				setWhite(board.getField(x).getNode());
 				counterWhite++;
 				removeTileFromSpare(WHITEPLAYER, counterWhite);
-				
-				player = changePlayer(player);
-			}
 
-			else {
+				player = changePlayer(player);
+			} else {
 				Pawn czarne = new Pawn(BLACKPLAYER);
 				board.getField(x).setPawn(czarne);
 				setBlack(board.getField(x).getNode());
 				counterBlack++;
 				removeTileFromSpare(BLACKPLAYER, counterBlack);
-				
+
 				player = changePlayer(player);
 			}
 
 			if (board.getField(x).pawnsInRow() == true) {
 				canDelete = true;
-			}
-			else{
+			} else {
 				int enemy = player == WHITEPLAYER ? BLACKPLAYER : WHITEPLAYER;
 				changeTurnGUI(enemy);
 			}
@@ -187,7 +180,6 @@ public class Controller {
 				makeRed();
 				return;
 			}
-
 		}
 		if (isEveryPawnPlaced == true) {
 			if (isSelected == false) {
@@ -224,7 +216,6 @@ public class Controller {
 			}
 
 			else if (isSelected == true) {
-
 				for (int i = 0; i <= MAXNUMOFNODE; i++) {
 					if (target.getId() == board.getField(i).getNode().getId() && board.getField(i).getPawn() == null
 							&& board.getField(i).getNode().getImage().getPixelReader().getArgb(25, 25) == greenTile
@@ -269,17 +260,14 @@ public class Controller {
 
 				if (board.getField(x).pawnsInRow() == true) {
 					canDelete = true;
-				}
-				else{
+				} else {
 					changeTurnGUI(player);
 				}
 
 				isSelected = false;
 				player = changePlayer(player);
 			}
-			
 		}
-
 	}
 
 	private void makeRed() {
@@ -328,15 +316,15 @@ public class Controller {
 		return DEFAULTEVALUE;
 	}
 
-	private void changeTurnGUI(int player){
+	private void changeTurnGUI(int player) {
 		if (player == BLACKPLAYER) {
 			turnIndet.setImage(whiteTile);
 		}
 		if (player == WHITEPLAYER) {
 			turnIndet.setImage(blackTile);
 		}
-
 	}
+
 	@FXML
 	ImageView nb1, nb2, nb3, nb4, nb5, nw1, nw2, nw3, nw4, nw5;
 
@@ -384,5 +372,4 @@ public class Controller {
 			}
 		}
 	}
-
 }
