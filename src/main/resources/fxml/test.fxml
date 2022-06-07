@@ -34,9 +34,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -51,107 +48,92 @@
 
 <VBox prefHeight="829.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiveMens.Controller">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New Game" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Rules" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="804.0" prefWidth="1114.0" VBox.vgrow="ALWAYS">
          <children>
             <Group layoutX="88.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8e9bd" height="821.0" layoutX="-89.0" stroke="BLACK" strokeType="INSIDE" width="908.0" />
-                  <ImageView fitHeight="731.0" fitWidth="736.0" layoutX="-75.0" layoutY="-10.0" preserveRatio="true">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8e9bd" height="845.0" layoutX="-89.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" width="908.0" />
+                  <ImageView fitHeight="731.0" fitWidth="736.0" layoutX="-69.0" layoutY="-9.0" preserveRatio="true">
                      <image>
                         <Image url="@Six_Men's_Morris.svg.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node1" layoutX="-35.0" layoutY="34.0" onMousePressed="#setPlayerTile">
+                  <ImageView id="NODE0" fx:id="NODE0" layoutX="-28.0" layoutY="36.0" onMousePressed="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node2" layoutX="259.0" layoutY="34.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE1" fx:id="NODE1" layoutX="264.0" layoutY="34.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node3" layoutX="552.0" layoutY="33.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE2" fx:id="NODE2" layoutX="555.0" layoutY="36.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node7" layoutX="112.0" layoutY="181.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE8" fx:id="NODE8" layoutX="118.0" layoutY="181.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node8" layoutX="258.0" layoutY="182.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE9" fx:id="NODE9" layoutX="264.0" layoutY="182.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node9" layoutX="405.0" layoutY="182.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE10" fx:id="NODE10" layoutX="410.0" layoutY="182.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node10" layoutX="-34.0" layoutY="327.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE7" fx:id="NODE7" layoutX="-29.0" layoutY="327.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node13" layoutX="404.0" layoutY="329.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE11" fx:id="NODE11" layoutX="410.0" layoutY="329.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node15" layoutX="551.0" layoutY="328.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE3" fx:id="NODE3" layoutX="555.0" layoutY="328.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node16" layoutX="114.0" layoutY="473.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE14" fx:id="NODE14" layoutX="117.0" layoutY="473.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node17" layoutX="261.0" layoutY="473.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE13" fx:id="NODE13" layoutX="264.0" layoutY="474.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node18" layoutX="403.0" layoutY="473.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE12" fx:id="NODE12" layoutX="409.0" layoutY="474.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node22" layoutX="-35.0" layoutY="620.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE6" fx:id="NODE6" layoutX="-29.0" layoutY="621.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node23" layoutX="258.0" layoutY="620.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE5" fx:id="NODE5" layoutX="263.0" layoutY="622.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node24" layoutX="551.0" layoutY="620.0" onMousePressed="#setPlayerTile">
+                  <ImageView id="NODE4" fx:id="NODE4" layoutX="556.0" layoutY="621.0" onMousePressed="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="node11" layoutX="112.0" layoutY="326.0" onMouseClicked="#setPlayerTile">
+                  <ImageView id="NODE15" fx:id="NODE15" layoutX="116.0" layoutY="326.0" onMouseClicked="#setPlayerTile">
                      <image>
                         <Image url="@green_tile.png" />
                      </image>

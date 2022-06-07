@@ -1,5 +1,7 @@
 package fiveMens.utils;
 
+import javafx.scene.image.ImageView;
+
 public class BoardField {
     private BoardField up;
     private BoardField down;
@@ -7,6 +9,16 @@ public class BoardField {
     private BoardField right;
 
     private Pawn pawn;
+    
+    private ImageView image;
+
+    public ImageView getNode() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
+    }
 
     public BoardField() {
         this.up = null;

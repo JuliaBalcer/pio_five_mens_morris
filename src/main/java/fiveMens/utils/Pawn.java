@@ -8,6 +8,10 @@ public class Pawn {
      * player who owns this pawn
      */
     private int player;
+    
+    public void setPlayer(int player) {
+        this.player = player;
+    }
 
     /**
      * @param player - describes belonging to the player
@@ -23,5 +27,7 @@ public class Pawn {
     public int getPlayer() {
         return player;
     }
+
+    
 
 }
