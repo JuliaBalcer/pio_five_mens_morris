@@ -55,6 +55,9 @@ public class Controller {
 		target.setImage(redTile);
 	}
 
+	Image selectedBlackTile = new Image(getClass().getResourceAsStream("/fxml/black_tile_selected.png"));
+	Image selectedWhiteTile = new Image(getClass().getResourceAsStream("/fxml/white_tile_selected.png"));
+
 	@FXML
 	ImageView NODE0, NODE1, NODE2, NODE3, NODE4, NODE5, NODE6, NODE7, NODE8, NODE9, NODE10, NODE11, NODE12, NODE13,
 			NODE14, NODE15;
@@ -190,6 +193,11 @@ public class Controller {
 					checkAvaliableMovesWhenMoreThen3(x);
 				}
 				isSelected = true;
+
+				if (player == BLACKPLAYER)
+					prevField.getNode().setImage(selectedBlackTile);
+				if (player == WHITEPLAYER)
+					prevField.getNode().setImage(selectedWhiteTile);
 			}
 
 			else if (isSelected == true) {
@@ -201,13 +209,20 @@ public class Controller {
 						break;
 					}
 				}
-				if (x == DEFAULTEVALUE) {
-					return;
-				}
 
 				if (target.getId() == prevField.getNode().getId()) {
 					isSelected = false;
 					makeRed();
+
+					if (player == BLACKPLAYER)
+						prevField.getNode().setImage(blackTile);
+					if (player == WHITEPLAYER)
+						prevField.getNode().setImage(whiteTile);
+
+					return;
+				}
+
+				if (x == DEFAULTEVALUE) {
 					return;
 				}
 
