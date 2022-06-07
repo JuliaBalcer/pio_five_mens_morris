@@ -1,7 +1,9 @@
 package fiveMens;
 
 import fiveMens.utils.Board;
+import fiveMens.utils.BoardField;
 import fiveMens.utils.CanNotRemovePawnException;
+import fiveMens.utils.Pawn;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,34 +26,50 @@ public class Controller {
 	Image greenTile = new Image(getClass().getResourceAsStream("/fxml/green_tile.png"));
 
 	private Board board = new Board();
+
+	private final boolean[] playersAllowedToRemovePawn = new boolean[2];
 	
 	public void setPlayerTile(MouseEvent event) {
 		
 		ImageView target = (ImageView) event.getTarget();
-		if ( player == 0 && counterWhite < 5) { 
+		if ( player == 0 && counterWhite < 5) {
+			setPawn(target);
 			target.setImage(whiteTile);
 			counterWhite++;
 			removeTileFromSpare(player,counterWhite);
 			player = 1;
 		}
-		else if ( player == 1 && counterBlack < 5){ 
+		else if ( player == 1 && counterBlack < 5){
+			setPawn(target);
 			target.setImage(blackTile);
 			counterBlack++;
 			removeTileFromSpare(player,counterBlack);	
 			player = 0 ;
-		
 		}
 		
 		changeTurnGUI(player);
 	}
 
+	private void setPawn(ImageView target) {
+		Pawn pawn = new Pawn(player);
+		board.putPawnOn(pawn, getNodeId(target.getId()));
+		BoardField field = board.getField(pawn);
+		if (field.pawnsInRow()) {
+			playersAllowedToRemovePawn[pawn.getPlayer()] = true;
+		}
+	}
+
 	private void removePawn(ImageView target) {
 		try {
+			if (!playersAllowedToRemovePawn[player]) {
+				throw new CanNotRemovePawnException("Player not allowed to remove pawn");
+			}
 			board.removePawnFrom(getNodeId(target.getId()), player);
+			playersAllowedToRemovePawn[player] = false;
+			target.setImage(greenTile);
 		} catch (CanNotRemovePawnException e) {
 			System.err.println(e.getMessage());
 		}
-		target.setImage(greenTile);
 	}
 
 	private int getNodeId(String targetId) {
