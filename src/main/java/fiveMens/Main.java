@@ -2,30 +2,39 @@ package fiveMens;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
+	private static Scene scene;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
+        scene = new Scene(loadFXML("/fxml/test"), 908, 804);
+        stage.setScene(scene);
+        stage.show();
 
-		FXMLLoader loader = new FXMLLoader();
+        stage.setTitle("FiveMensMorris");
 
-		loader.setLocation(getClass().getResource("/fxml/test.fxml"));
+        stage.setResizable(false);
+    }
 
-		VBox vBox = loader.load();
+    public static void setRoot(String fxml) throws Exception {
+        scene.setRoot(loadFXML(fxml));
+    }
 
-		Scene scene = new Scene(vBox);
+    private static Parent loadFXML(String fxml) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
 
-		primaryStage.setScene(scene);
-		primaryStage.setTitle("Five Men's Morris");
-		primaryStage.setResizable(false);
-		primaryStage.show();
-	}
+
+   
 }
+
+   
