@@ -126,11 +126,16 @@ public class Controller {
 		if (isEveryPawnPlaced == true) {
 			if (isSelected == false) {
 				for (int i = 0; i <= MAXNUMOFNODE; i++) {
-					if (target.getId() == board.getField(i).getNode().getId()
+					try {
+						if (target.getId() == board.getField(i).getNode().getId()
 							&& board.getField(i).getPawn().getPlayer() == player) {
 						x = i;
 						break;
 					}
+					} catch (Exception e) {
+					
+					}
+					
 				}
 				if (x == DEFAULTEVALUE) {
 					System.out.println("Blad");
