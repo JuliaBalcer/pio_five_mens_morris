@@ -53,35 +53,37 @@ public class Board {
         getField(index).setPawn(null);
     }
 
-    public void movePawnToAdjacentField(Pawn pawn, BoardField field) { 
+    public boolean movePawnToAdjacentField(Pawn pawn, BoardField field) { 
         if(field.getPawn() != null) { 
-            return;
+            return false;
         }
 
         BoardField previousField = getField(pawn);
         if(previousField == null) {
-            return;
+            return false;
         }
         if(previousField.getUp() != field && previousField.getLeft() != field 
         && previousField.getDown() != field && previousField.getRight() != field) {
-            return;
+            return false;
         }
 
         previousField.setPawn(null);
         field.setPawn(pawn);
+        return true;
     }
 
-    public void movePawnToAnyField(Pawn pawn, BoardField field) { 
+    public boolean movePawnToAnyField(Pawn pawn, BoardField field) { 
         if(field.getPawn() != null) { 
-            return;
+            return false;
         }
 
         BoardField previousField = getField(pawn);
         if(previousField == null) {
-            return;
+            return false;
         }
         previousField.setPawn(null);
         field.setPawn(pawn);
+        return true;
     }
 
     private void connectIntoSquare(int startingIndex) { 
