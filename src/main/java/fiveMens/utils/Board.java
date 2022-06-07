@@ -49,6 +49,9 @@ public class Board {
 
     public void putPawnOn(Pawn pawn, int index) { 
         getField(index).setPawn(pawn);
+        if (getField(index).pawnsInRow()) {
+            playersAllowedToRemovePawn[pawn.getPlayer()] = true;
+        }
     }
 
     public void removePawnFrom(int index, int player) throws CanNotRemovePawnException {
@@ -82,6 +85,9 @@ public class Board {
 
         previousField.setPawn(null);
         field.setPawn(pawn);
+        if (field.pawnsInRow()) {
+            playersAllowedToRemovePawn[pawn.getPlayer()] = true;
+        }
     }
 
     public void movePawnToAnyField(Pawn pawn, BoardField field) { 
@@ -95,6 +101,9 @@ public class Board {
         }
         previousField.setPawn(null);
         field.setPawn(pawn);
+        if (field.pawnsInRow()) {
+            playersAllowedToRemovePawn[pawn.getPlayer()] = true;
+        }
     }
 
     private void connectIntoSquare(int startingIndex) { 
